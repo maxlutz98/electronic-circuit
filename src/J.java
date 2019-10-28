@@ -55,4 +55,32 @@ public class J {  // class for complex numbers
   public J conj() {  // returns conjugate of J with a second J
 	  return new J(this.r, -this.j);
   }
+  
+  public float mod() {  // returns modulus of J
+	  return (float)Math.sqrt(this.r * this.r + this.j * this.j);
+  }
+  
+  public float arg() {  // returns argument of J
+	  float arg = 0;
+	  if (this.r > 0) {
+		  arg = (float)Math.atan(this.j / this.r);
+	  }
+	  else if (this.r < 0) {
+		  if (this.j >= 0) {
+			  arg = (float)Math.atan(this.j / this.r) + (float)Math.PI;
+		  }
+		  else {
+			  arg = (float)Math.atan(this.j / this.r) - (float)Math.PI;
+		  }
+	  }
+	  else {
+		  if (this.j > 0) {
+			  arg = (float)Math.PI / 2;
+		  }
+		  else if (this.j < 0) {
+			  arg = (float)-Math.PI / 2;
+		  }
+	  }
+	  return arg;
+  }
 }

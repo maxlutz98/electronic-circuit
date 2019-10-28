@@ -24,6 +24,17 @@ class JTest {
 		b.print();
 		assertTrue(b.div(a).equals(new J(2, -1)));
 		assertTrue(a.conj().equals(new J(4, -3)));
+		assertEquals(a.mod(), 5);
+		a.r(3);
+		assertEquals(a.arg(), (float)Math.PI / 4);
+		a.r(-3);
+		assertEquals(a.arg(), (float)Math.PI / 4 * 3);
+		a.j(-3);
+		assertEquals(a.arg(), (float)Math.PI / 4 * -3);
+		a.r(0);
+		assertEquals(a.arg(), (float)Math.PI / -2);
+		a.j(3);
+		assertEquals(a.arg(), (float)Math.PI / 2);
 	}
 
 }
