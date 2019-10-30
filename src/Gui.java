@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 
 public class Gui extends JFrame {
     private JFrame frame; // default frame
+    private JTextField circ;
 
     public Gui() throws HeadlessException {
     }
@@ -18,7 +19,7 @@ public class Gui extends JFrame {
         GridLayout layout = new GridLayout(0, 1);
         panel.setLayout(layout);
 
-        JComponent circ = new JTextField("<Gebe die Schaltung hier ein>");
+        circ = new JTextField("<Gib die Schaltung hier ein>");
         JButton input = new JButton("Eingabefelder erzeugen");
         input.addActionListener((ActionEvent arg0) -> this.input_values());
 
@@ -31,6 +32,9 @@ public class Gui extends JFrame {
     }
 
     public void input_values() {
+        String tmp = this.circ.getText();
+
+        System.out.println(tmp);
         JFrame frame2 = new JFrame("Bauteilwerte");
         frame2.setSize(300, 700);
 
