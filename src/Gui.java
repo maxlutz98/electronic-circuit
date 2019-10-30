@@ -29,4 +29,12 @@ public class Gui extends JFrame {
         this.frame.add(panel);
         this.frame.setVisible(true);
     }
+
+    public void input_values() {
+        JFrame frame2 = new JFrame("Bauteilwerte");
+        frame2.setSize(300, 700);
+
+
+        frame2.setVisible(true);
+    }
 }
