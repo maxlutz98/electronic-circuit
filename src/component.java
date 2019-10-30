@@ -10,7 +10,7 @@ public class component extends J { //class representing a component in a electro
         this.value = value;
     }
 
-    public void setFreq(float toSet){this.freq = toSet;
+    public void setFreq(float toSet){this.freq = toSet};
     public float getFreq() {return this.freq};
     public void setValue(float toSet){this.value = toSet};
     public float getValue(){return this.value};
