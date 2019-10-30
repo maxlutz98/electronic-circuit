@@ -1,0 +1,7 @@
+
+public class resistor extends component{ // represents a resistor in a curcuit
+
+    public void calculateThisImpedance(){
+        this.r(this.getValue);
+    }
+}

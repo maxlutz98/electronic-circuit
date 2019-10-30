@@ -1,0 +1,9 @@
+
+public class inductivity extends component{ // represents a resistor in a curcuit
+
+    public void calculateThisImpedance(){
+        float temp_Impedance = ((this.getFreq() * 2 * PI) * this.getValue());
+        this.r(temp_Impedance);
+    }
+
+}
