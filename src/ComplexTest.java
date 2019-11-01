@@ -1,12 +1,8 @@
 import org.junit.jupiter.api.Test;
 
-<<<<<<< HEAD:src/JTest.java
 import static org.junit.jupiter.api.Assertions.*;
 
-class JTest {
-=======
 class ComplexTest {
->>>>>>> name-correction:src/ComplexTest.java
 
 	@Test
 	void test() {
