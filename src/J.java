@@ -1,83 +1,83 @@
 
-public class J {  // class for complex numbers
-  private float r;  // real part
-  private float j;  // imaginary part
+public class Complex {  // class for complex numbers
+  private float re;  // real part
+  private float im;  // imaginary part
 	
-  public J(float r, float j) { // constructor with real and imaginary part
-	  this.r = r;
-	  this.j = j;
+  public Complex(float re, float im) { // constructor with real and imaginary part
+	  this.re = re;
+	  this.im = im;
   }
   
-  public float r() {  // return real part of J. chose r() instead of getR() for shorter code
-	  return this.r;
+  public float getRe() {  // return real part of J. chose r() instead of getR() for shorter code
+	  return this.re;
   }
   
-  public J r(float r) {
-	  this.r = r;
+  public Complex setRe(float re) {
+	  this.re = re;
 	  return this;
   }
   
-  public float j() {  // return imaginary part of J. chose i() instead of getI() for shorter code
-	  return this.j;
+  public float getIm() {  // return imaginary part of J. chose i() instead of getI() for shorter code
+	  return this.im;
   }
   
-  public J j(float j) {
-	  this.j = j;
+  public Complex setIm(float im) {
+	  this.im = im;
 	  return this;
   }
   
   public void print() {
-	  System.out.println("(" + String.valueOf(this.r) + " + " + String.valueOf(this.j) + "j)");
+	  System.out.println("(" + String.valueOf(this.re) + " + " + String.valueOf(this.im) + "j)");
   }
   
-  public boolean equals(J j) {
-	  return this.r == j.r() && this.j == j.j();
+  public boolean equals(Complex secondNumber) {
+	  return this.re == number.getRe() && this.im == number.getIm();
   }
   
-  public J plus(J j) {  // returns addition of J with a second J
-	  return new J(this.r + j.r(), this.j + j.j());
+  public Complex plus(Complex secondNumber) {  // returns addition of J with a second J
+	  return new Complex(this.re + secondNumber.getRe(), this.im + secondNumber.getIm();
   }
   
-  public J minus(J j) {  // returns subtraction of J with a second J
-	  return new J(this.r - j.r(), this.j - j.j());
+  public Complex minus(Complex secondNumber) {  // returns subtraction of J with a second J
+	  return new Complex(this.re - secondNumber.getRe(), this.im - secondNumber.getIm());
   }
   
-  public J mult(J j) {  // returns multiplication of J with a second J
-	  return new J(this.r * j.r() - this.j * j.j(), this.r * j.j() + this.j * j.r());
+  public Complex mult(Complex secondNumber) {  // returns multiplication of J with a second J
+	  return new Complex(this.re * secondNumber.getRe() - this.im * secondNumber.getIm(), this.re * secondNumber.getIm() + this.im * secondNumber.getRe());
   }
   
-  public J div(J j) {  // returns division of J with a second J
-	  J numerator = this.mult(j.conj());
-	  float denominator = j.mult(j.conj()).r();
-	  return new J(numerator.r() / denominator, numerator.j() / denominator);
+  public Complex div(Complex secondNumber) {  // returns division of J with a second J
+	  Complex numerator = this.mult(secondNumber.conj());
+	  float denominator = secondNumber.mult(secondNumber.conj()).getRe();
+	  return new Complex(numerator.getRe() / denominator, numerator.getIm() / denominator);
   }
   
-  public J conj() {  // returns conjugate of J with a second J
-	  return new J(this.r, -this.j);
+  public Complex conj() {  // returns conjugate of J with a second J
+	  return new Complex(this.re, -this.im);
   }
   
   public float mod() {  // returns modulus of J
-	  return (float)Math.sqrt(this.r * this.r + this.j * this.j);
+	  return (float)Math.sqrt(this.re * this.re + this.im * this.im);
   }
   
   public float arg() {  // returns argument of J
 	  float arg = 0;
-	  if (this.r > 0) {
-		  arg = (float)Math.atan(this.j / this.r);
+	  if (this.re > 0) {
+		  arg = (float)Math.atan(this.im / this.re);
 	  }
-	  else if (this.r < 0) {
-		  if (this.j >= 0) {
-			  arg = (float)Math.atan(this.j / this.r) + (float)Math.PI;
+	  else if (this.re < 0) {
+		  if (this.im >= 0) {
+			  arg = (float)Math.atan(this.im / this.re) + (float)Math.PI;
 		  }
 		  else {
-			  arg = (float)Math.atan(this.j / this.r) - (float)Math.PI;
+			  arg = (float)Math.atan(this.im / this.re) - (float)Math.PI;
 		  }
 	  }
 	  else {
-		  if (this.j > 0) {
+		  if (this.im > 0) {
 			  arg = (float)Math.PI / 2;
 		  }
-		  else if (this.j < 0) {
+		  else if (this.im < 0) {
 			  arg = (float)-Math.PI / 2;
 		  }
 	  }
