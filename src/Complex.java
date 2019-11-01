@@ -2,17 +2,22 @@
 public class Complex {  // class for complex numbers
   private float re;  // real part
   private float im;  // imaginary part
-	
+
+	public Complex(){ // default constructor needed for inheritance
+		this.re = 0;
+		this.im = 0;
+	}
+
   public Complex(float re, float im) { // constructor with real and imaginary part
 	  this.re = re;
 	  this.im = im;
   }
   
-  public float getRe() {  // return real part of J. chose r() instead of getR() for shorter code
+  public float getRe() {  // return real part of Complex. chose r() instead of getR() for shorter code
 	  return this.re;
   }
   
-  public Complex setRe(float re) {
+  public Complex setRe(float re) { // set real part of Complex class
 	  this.re = re;
 	  return this;
   }
@@ -21,7 +26,7 @@ public class Complex {  // class for complex numbers
 	  return this.im;
   }
   
-  public Complex setIm(float im) {
+  public Complex setIm(float im) { // set imaginary part of Complex class
 	  this.im = im;
 	  return this;
   }
@@ -31,11 +36,11 @@ public class Complex {  // class for complex numbers
   }
   
   public boolean equals(Complex secondNumber) {
-	  return this.re == number.getRe() && this.im == number.getIm();
+	  return this.re == secondNumber.getRe() && this.im == secondNumber.getIm();
   }
   
   public Complex plus(Complex secondNumber) {  // returns addition of J with a second J
-	  return new Complex(this.re + secondNumber.getRe(), this.im + secondNumber.getIm();
+	  return new Complex(this.re + secondNumber.getRe(), this.im + secondNumber.getIm());
   }
   
   public Complex minus(Complex secondNumber) {  // returns subtraction of J with a second J
