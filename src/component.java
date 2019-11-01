@@ -1,5 +1,5 @@
 
-public class component extends J { //class representing a component in a electronic curcuit
+public class component extends Complex { //class representing a component in a electronic curcuit
     private float freq; // freqency applied to the curcuit
     private float value; // value of the component
 

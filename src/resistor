@@ -1,7 +1,10 @@
 
 public class resistor extends component{ // represents a resistor in a curcuit
 
+    public resistor (){// default constructor
+         }
+
     public void calculateThisImpedance(){
-        this.r(this.getValue);
+        this.setRe(this.getValue());
     }
 }
