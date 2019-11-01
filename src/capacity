@@ -1,6 +1,11 @@
 
 public class capacity extends component{ // represents a capacitor in the curcuit
 
+    public capacity(){}
+    public capacity(float value, float freq){
+        this.setFreq(freq);
+        this.setValue(value);
+    }
     public void calculateThisImpedance(){
         float temp_Impedance = 1/ ((this.getFreq() * 2 * PI) * this.getValue());
         this.r(temp_Impedance);
