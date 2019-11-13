@@ -10,6 +10,7 @@ public class Gui extends JFrame {
     private ArrayList<JTextField> condensator_fields;
     private ArrayList<JTextField> inductor_fields;
     private JFrame value_frame;
+    private JLabel result;
 
     public Gui() throws HeadlessException {
     }
@@ -111,12 +112,18 @@ public class Gui extends JFrame {
         }
 
         JButton calc_button = new JButton("Gesamtimpedanz berechnen ");
-        calc_button.addActionListener((ActionEvent arg0) -> System.out.println("Test"));
+        calc_button.addActionListener((ActionEvent arg0) -> start_calculating());
 
-        panel.add(new JLabel(""));
+        this.result = new JLabel("");
+        panel.add(this.result);
         panel.add(calc_button);
 
         this.value_frame.add(panel);
         this.value_frame.setVisible(true);
+    }
+
+    private void start_calculating() {
+
+        this.result.setText("Gesamtimpedanz: ");
     }
 }
