@@ -6,9 +6,10 @@ import java.util.ArrayList;
 public class Gui extends JFrame {
     private JTextField circ;
     private JTextField freq;
-    private ArrayList<String> resistors;
-    private ArrayList<String> condensators;
-    private ArrayList<String> inductors;
+    private ArrayList<JTextField> resistor_fields;
+    private ArrayList<JTextField> condensator_fields;
+    private ArrayList<JTextField> inductor_fields;
+    private JFrame value_frame;
 
     public Gui() throws HeadlessException {
     }
@@ -23,15 +24,15 @@ public class Gui extends JFrame {
         GridLayout layout = new GridLayout(0, 1);
         panel.setLayout(layout);
 
-        circ = new JTextField("<Gib die Schaltung hier ein>");
-        freq = new JTextField("<Gib die gwünschte Frequenz an>");
+        this.circ = new JTextField("<Gib die Schaltung hier ein>");
+        this.freq = new JTextField("<Gib die gwünschte Frequenz an>");
         JButton gen_button = new JButton("Bauteilfelder erzeugen");
-        gen_button.addActionListener((ActionEvent arg0) -> this.input_values());
+        gen_button.addActionListener((ActionEvent arg0) -> input_values());
 
         panel.add(new JLabel("<html>Eingabe der Schaltung: <br>R, L, C für Bauteile<br>+ : Reihe, || : Parallel, () : Priorität<html>"));
-        panel.add(circ);
+        panel.add(this.circ);
         panel.add(new JLabel("Gib die gewünschte Frequenz (in Hz) an:"));
-        panel.add(freq);
+        panel.add(this.freq);
         panel.add(gen_button);
 
         frame.add(panel);
@@ -45,9 +46,9 @@ public class Gui extends JFrame {
         int numberres = 0;
         int numbercon = 0;
         int numberind = 0;
-        resistors = new ArrayList<>();
-        condensators = new ArrayList<>();
-        inductors = new ArrayList<>();
+        ArrayList<String> resistors = new ArrayList<String>();
+        ArrayList<String> condensators = new ArrayList<String>();
+        ArrayList<String> inductors = new ArrayList<String>();
         for (int i = 0; i < input.length(); i++) {
             switch (input.charAt(i)) {
                 case 'R':
@@ -71,33 +72,51 @@ public class Gui extends JFrame {
             }
         }
         this.circ.setText(tmp);
-        second_frame();
+        second_frame(resistors, condensators, inductors);
     }
 
-    private void second_frame() {
-        JFrame frame2 = new JFrame("Bauteilwerte");
-        frame2.setSize(500, 100 * (resistors.size() + condensators.size() + inductors.size()));
+    private void second_frame(ArrayList<String> resistors, ArrayList<String> condensators, ArrayList<String> inductors) {
+        JTextField tmp;
+        this.resistor_fields = new ArrayList<JTextField>();
+        this.condensator_fields = new ArrayList<JTextField>();
+        this.inductor_fields = new ArrayList<JTextField>();
+
+        if (this.value_frame == null) {
+            this.value_frame = new JFrame("Bauteilwerte");
+        }
+        this.value_frame.setSize(800, 40 * (resistors.size() + condensators.size() + inductors.size()));
 
         JPanel panel = new JPanel();
 
         GridLayout layout = new GridLayout(0, 2);
         panel.setLayout(layout);
 
-        resistors.forEach(resistor -> {
-            panel.add(new JLabel(resistor + ":"));
-            panel.add(new JTextField("<trage hier den Widerstandswert ein>"));
-        });
-        condensators.forEach(condensator -> {
-            panel.add(new JLabel(condensator + ":"));
-            panel.add(new JTextField("<trage hier die Kapazitätswert ein>"));
-        });
-        inductors.forEach(inductor -> {
-            panel.add(new JLabel(inductor + ":"));
-            panel.add(new JTextField("<trage hier die Induktivitätswert ein>"));
-        });
+        for (int i = 0; i < resistors.size(); i++) {
+            panel.add(new JLabel(resistors.get(i) + ":"));
+            tmp = new JTextField("<trage hier den zugehörigen Widerstandswert ein>");
+            this.resistor_fields.add(tmp);
+            panel.add(tmp);
+        }
+        for (int i = 0; i < condensators.size(); i++) {
+            panel.add(new JLabel(condensators.get(i) + ":"));
+            tmp = new JTextField("<trage hier den zugehörigen Kapazitätswert ein>");
+            this.condensator_fields.add(tmp);
+            panel.add(tmp);
+        }
+        for (int i = 0; i < inductors.size(); i++) {
+            panel.add(new JLabel(inductors.get(i) + ":"));
+            tmp = new JTextField("<trage hier den zugehörigen Induktivitätswert ein>");
+            this.inductor_fields.add(tmp);
+            panel.add(tmp);
+        }
 
+        JButton calc_button = new JButton("Gesamtimpedanz berechnen ");
+        calc_button.addActionListener((ActionEvent arg0) -> System.out.println("Test"));
 
-        frame2.add(panel);
-        frame2.setVisible(true);
+        panel.add(new JLabel(""));
+        panel.add(calc_button);
+
+        this.value_frame.add(panel);
+        this.value_frame.setVisible(true);
     }
 }
