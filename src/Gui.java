@@ -123,7 +123,27 @@ public class Gui extends JFrame {
     }
 
     private void start_calculating() {
+        ArrayList<Double> resistor_values = new ArrayList<Double>();
+        ArrayList<Double> condensator_values = new ArrayList<Double>();
+        ArrayList<Double> inductor_values = new ArrayList<Double>();
+        double frequency = Double.valueOf(this.freq.getText());
 
-        this.result.setText("Gesamtimpedanz: ");
+        for (int i = 0; i < this.resistor_fields.size(); i++) {
+            resistor_values.add(Double.valueOf(this.resistor_fields.get(i).getText()));
+        }
+
+        for (int i = 0; i < this.condensator_fields.size(); i++) {
+            condensator_values.add(Double.valueOf(this.condensator_fields.get(i).getText()));
+        }
+
+        for (int i = 0; i < this.inductor_fields.size(); i++) {
+            inductor_values.add(Double.valueOf(this.inductor_fields.get(i).getText()));
+        }
+
+        Calculate calc = new Calculate(frequency, resistor_values, condensator_values, inductor_values);
+
+        Circuit impedance = calc.calculate();
+
+        this.result.setText("Gesamtimpedanz: " + impedance.getRe() + " + " + impedance.getIm());
     }
 }
