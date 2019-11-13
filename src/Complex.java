@@ -57,6 +57,10 @@ public class Complex {  // class for complex numbers
 	  return new Complex(numerator.getRe() / denominator, numerator.getIm() / denominator);
   }
   
+  public Complex inv() {  // inverse of J
+	  return new Complex(1, 0).div(this);
+  }
+  
   public Complex conj() {  // returns conjugate of J with a second J
 	  return new Complex(this.re, -this.im);
   }
