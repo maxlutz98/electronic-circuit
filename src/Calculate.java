@@ -12,4 +12,8 @@ public class Calculate {
         this.condensators = condensators;
         this.inductors = inductors;
     }
+
+    public Circuit calculate(String term) {
+
+    }
 }
