@@ -26,15 +26,15 @@ class ComplexTest {
 		assertTrue(a.conj().equals(new Complex(4, -3)));
 		assertEquals(a.mod(), 5);
 		a.setRe(3);
-		assertEquals(a.arg(), (float)Math.PI / 4);
+		assertEquals(a.arg(), Math.PI / 4);
 		a.setRe(-3);
-		assertEquals(a.arg(), (float)Math.PI / 4 * 3);
+		assertEquals(a.arg(), Math.PI / 4 * 3);
 		a.setIm(-3);
-		assertEquals(a.arg(), (float)Math.PI / 4 * -3);
+		assertEquals(a.arg(), Math.PI / 4 * -3);
 		a.setRe(0);
-		assertEquals(a.arg(), (float)Math.PI / -2);
+		assertEquals(a.arg(), Math.PI / -2);
 		a.setIm(3);
-		assertEquals(a.arg(), (float)Math.PI / 2);
+		assertEquals(a.arg(), Math.PI / 2);
 	}
 
 }
