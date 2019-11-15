@@ -1,13 +1,13 @@
 
 abstract class Component extends Complex implements ComponentImpedance{ //class representing a component in a electronic curcuit
-    private static float freq; // freqency applied to the curcuit
-    private float value; // value of the component
+    private static double freq; // freqency applied to the curcuit
+    private double value; // value of the component
 
     public Component(){
         this.freq = 0;
         this.value = 0;
     }
-    public Component(float freq, float value){
+    public Component(double freq, double value){
         this.freq = freq;
         this.value = value;
     }
@@ -19,7 +19,7 @@ abstract class Component extends Complex implements ComponentImpedance{ //class 
 
 
     public void setFreq(float toSet){this.freq = toSet;};
-    public float getFreq() {return this.freq;};
+    public double getFreq() {return this.freq;};
     public void setValue(float toSet){this.value = toSet;};
-    public float getValue(){return this.value;};
+    public double getValue(){return this.value;};
 }
