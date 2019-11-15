@@ -3,9 +3,11 @@ public class Capacity extends Component { // represents a capacitor in the curcu
 
     public Capacity(){// default constructor
          }
-
+    public Capacity(double newFreq, double newValue){
+        super(newFreq,newValue);
+    }
     public void calculateImpedance(){
-        float tempImpedance = (float) (1/ ((this.getFreq() * 2 * Math.PI) * this.getValue()));
-        this.setRe(tempImpedance);
+        double tempImpedance = (1/ (this.getFreq() * 2 * Math.PI * this.getValue()));
+        this.setIm(1/ (this.getFreq() * 2 * Math.PI * this.getValue()));
     }
 }

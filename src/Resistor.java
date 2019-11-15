@@ -4,7 +4,10 @@ public class Resistor extends Component implements ComponentImpedance { // repre
     public Resistor (){// default constructor
          }
 
+    public Resistor (double newFreq, double newValue){
+        super(newFreq, newValue);
+    }
     public void calculateImpedance(){
-        this.setRe(this.getValue());
+        this.setRe((float)this.getValue());
     }
 }

@@ -29,7 +29,7 @@ abstract public class Circuit extends Complex implements CircuitImpedance{
         this.formula = formula;
     }
 
-    public float overallImpedance(){
+    public double overallImpedance(){
         //TODO Betrag der Complexen Zahl
         float zahl = 1;
         return zahl;
