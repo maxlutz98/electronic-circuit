@@ -53,7 +53,7 @@ public class Calculate {
         } else {
             circ = new Circuit(term);
             if (term.matches("^R{0-9}+")) {
-                Resistor res = new Resistor(this.frequency, this.resistors(Integer.valueOf(term.replaceAll("R", "")) - 1));
+                Resistor res = new Resistor(this.frequency, this.resistors.get(Integer.valueOf(term.replaceAll("R", "")) - 1));
                 // TODO: 15.11.19 function for generating circuit class out of component
             } else if (term.matches("^C{0-9}+")) {
                 Capacity cap = new Capacity(this.frequency, this.condensators.get(Integer.valueOf(term.replaceAll("C", "")) - 1));
