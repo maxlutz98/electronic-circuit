@@ -5,6 +5,31 @@ abstract public class Circuit extends Complex implements CircuitImpedance{
     private Circuit component2;
     private String formula;
 
+    public Circuit() {//default constructor
+    }
+
+    public Circuit(Circuit component1, Circuit component2) {
+        this.component1 = component1;
+        this.component2 = component2;
+    }
+
+    public Circuit(Circuit component1, Circuit component2, String formula) {
+        this.component1 = component1;
+        this.component2 = component2;
+        this.formula = formula;
+    }
+
+    public Circuit(String formula) {
+        this.formula = formula;
+    }
+
+    public Circuit(double re, double im, Circuit component1, Circuit component2, String formula) {
+        super(re, im);
+        this.component1 = component1;
+        this.component2 = component2;
+        this.formula = formula;
+    }
+
     public Circuit getComponent1() {
         return this.component1;
     }
@@ -28,10 +53,4 @@ abstract public class Circuit extends Complex implements CircuitImpedance{
     public void setFormula(String formula) {
         this.formula = formula;
     }
-
-    public double overallImpedance(){
-        //TODO Betrag der Complexen Zahl
-        float zahl = 1;
-        return zahl;
-    };
 }
