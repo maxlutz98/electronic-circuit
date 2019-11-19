@@ -51,13 +51,7 @@ class CircuitTest {
 
     @Test
     void calculateImpedance() {
+
     }
 
-    @Test
-    void testCalculateImpedance() {
-    }
-
-    @Test
-    void testCalculateImpedance1() {
-    }
 }
