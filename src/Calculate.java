@@ -42,14 +42,15 @@ public class Calculate {
             switch (symbol) {
                 case '+':
                     circ = new Seriell(this.calculate(left), this.calculate(right), term);
+                    circ.calculateImpedance();
                     break;
                 case '|':
                     circ = new Paralell(this.calculate(left), this.calculate(right), term);
+                    circ.calculateImpedance();
                     break;
                 default:
                     break;
             }
-            circ.calculateImpedance();
         } else {
             circ = new Circuit(term);
             if (term.matches("^R{0-9}+")) {
