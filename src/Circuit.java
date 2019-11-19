@@ -5,9 +5,6 @@ public class Circuit extends Complex implements CircuitImpedance {
     private Circuit component2;
     private String formula;
 
-    public Circuit() {//default constructor
-    }
-
     public Circuit(Circuit component1, Circuit component2) {
         this.component1 = component1;
         this.component2 = component2;
