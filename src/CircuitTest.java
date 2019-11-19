@@ -30,6 +30,10 @@ class CircuitTest {
 
     @Test
     void setComponent2() {
+        Circuit circ2 = new Circuit("Circ2");
+        Circuit test = new Circuit("Main");
+        test.setComponent2(circ2);
+        assertTrue(test.getComponent2() == circ2);
     }
 
     @Test
