@@ -56,14 +56,13 @@ public class Calculate {
             circ = new Circuit(term);
             if (term.matches("^R{0-9}+")) {
                 Resistor res = new Resistor(this.frequency, this.resistors.get(Integer.valueOf(term.replaceAll("R", "")) - 1));
-                // TODO: 15.11.19 function for generating circuit class out of component
+                circ.calculateImpedance(res);
             } else if (term.matches("^C{0-9}+")) {
                 Capacity cap = new Capacity(this.frequency, this.condensators.get(Integer.valueOf(term.replaceAll("C", "")) - 1));
-                // TODO: 15.11.19 function for generating circuit class out of component
+                circ.calculateImpedance(cap);
             } else if (term.matches("^L{0-9}+")) {
                 Inductivity ind = new Inductivity(this.frequency, this.inductors.get(Integer.valueOf(term.replaceAll("L", "")) - 1));
-                // TODO: 15.11.19 function for generating circuit class out of component, e. g.
-                // circ.calculateImpedance(ind);
+                circ.calculateImpedance(ind);
             }
         }
         return circ;
