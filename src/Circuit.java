@@ -53,4 +53,20 @@ public class Circuit extends Complex implements CircuitImpedance {
     public void setFormula(String formula) {
         this.formula = formula;
     }
+
+    @Override
+    public void calculateImpedance(Component part1) {
+        this.setRe(part1.getRe());
+        this.setIm(part1.getIm());
+    }
+
+    @Override
+    public void calculateImpedance(Circuit part1, Circuit part2) {
+
+    }
+
+    @Override
+    public void calculateImpedance() {
+
+    }
 }
