@@ -49,6 +49,7 @@ public class Calculate {
                     circ.calculateImpedance();
                     break;
                 default:
+                    circ = new Circuit("Fehler");
                     break;
             }
         } else {
