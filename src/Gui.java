@@ -126,7 +126,7 @@ public class Gui extends JFrame {
         ArrayList<Double> resistor_values = new ArrayList<Double>();
         ArrayList<Double> condensator_values = new ArrayList<Double>();
         ArrayList<Double> inductor_values = new ArrayList<Double>();
-        double frequency = Double.valueOf(this.freq.getText());
+        Double frequency = Double.valueOf(this.freq.getText());
 
         for (int i = 0; i < this.resistor_fields.size(); i++) {
             resistor_values.add(Double.valueOf(this.resistor_fields.get(i).getText()));
