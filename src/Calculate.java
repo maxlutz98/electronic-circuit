@@ -58,12 +58,15 @@ public class Calculate {
             circ = new Circuit(term);
             if (term.matches("^R{0-9}+")) {
                 Resistor res = new Resistor(this.frequency, this.resistors.get(Integer.valueOf(term.replaceAll("R", "")) - 1));
+                res.calculateImpedance();
                 circ.calculateImpedance(res);
             } else if (term.matches("^C{0-9}+")) {
                 Capacity cap = new Capacity(this.frequency, this.condensators.get(Integer.valueOf(term.replaceAll("C", "")) - 1));
+                cap.calculateImpedance();
                 circ.calculateImpedance(cap);
             } else if (term.matches("^L{0-9}+")) {
                 Inductivity ind = new Inductivity(this.frequency, this.inductors.get(Integer.valueOf(term.replaceAll("L", "")) - 1));
+                ind.calculateImpedance();
                 circ.calculateImpedance(ind);
             }
         }
