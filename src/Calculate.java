@@ -4,13 +4,13 @@ public class Calculate {
     private Double frequency;
     private ArrayList<Double> resistors;
     private ArrayList<Double> capacities;
-    private ArrayList<Double> inductivities;
+    private ArrayList<Double> inductance;
 
-    public Calculate(Double frequency, ArrayList resistors, ArrayList capacities, ArrayList inductivities) {
+    public Calculate(Double frequency, ArrayList resistors, ArrayList capacities, ArrayList inductance) {
         this.frequency = frequency;
         this.resistors = resistors;
         this.capacities = capacities;
-        this.inductivities = inductivities;
+        this.inductance = inductance;
     }
 
     public Circuit calculate(String term) {
@@ -66,7 +66,7 @@ public class Calculate {
                 cap.calculateImpedance();
                 circ.calculateImpedance(cap);
             } else if (term.matches("^L[0-9]+")) {
-                Inductivity ind = new Inductivity(this.frequency, this.inductivities.get(Integer.valueOf(term.replaceAll("L", "")) - 1));
+                Inductivity ind = new Inductivity(this.frequency, this.inductance.get(Integer.valueOf(term.replaceAll("L", "")) - 1));
                 ind.calculateImpedance();
                 circ.calculateImpedance(ind);
             }

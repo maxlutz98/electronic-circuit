@@ -8,7 +8,7 @@ public class Gui extends JFrame {
     private JTextField freq;
     private ArrayList<JTextField> resistor_fields;
     private ArrayList<JTextField> capacity_fields;
-    private ArrayList<JTextField> inductivity_fields;
+    private ArrayList<JTextField> inductance_fields;
     private JFrame value_frame;
     private JLabel result;
 
@@ -49,7 +49,7 @@ public class Gui extends JFrame {
         int numberind = 0;
         ArrayList<String> resistors = new ArrayList<String>();
         ArrayList<String> capacities = new ArrayList<String>();
-        ArrayList<String> inductivities = new ArrayList<String>();
+        ArrayList<String> inductance = new ArrayList<String>();
         for (int i = 0; i < input.length(); i++) {
             switch (input.charAt(i)) {
                 case 'R':
@@ -60,7 +60,7 @@ public class Gui extends JFrame {
                 case 'L':
                     numberind += 1;
                     tmp += input.charAt(i) + Integer.toString(numberind);
-                    inductivities.add(input.charAt(i) + Integer.toString(numberind));
+                    inductance.add(input.charAt(i) + Integer.toString(numberind));
                     break;
                 case 'C':
                     numbercon += 1;
@@ -73,19 +73,19 @@ public class Gui extends JFrame {
             }
         }
         this.circ.setText(tmp);
-        second_frame(resistors, capacities, inductivities);
+        second_frame(resistors, capacities, inductance);
     }
 
-    private void second_frame(ArrayList<String> resistors, ArrayList<String> capacities, ArrayList<String> inductivities) {
+    private void second_frame(ArrayList<String> resistors, ArrayList<String> capacities, ArrayList<String> inductance) {
         JTextField tmp;
         this.resistor_fields = new ArrayList<JTextField>();
         this.capacity_fields = new ArrayList<JTextField>();
-        this.inductivity_fields = new ArrayList<JTextField>();
+        this.inductance_fields = new ArrayList<JTextField>();
 
         if (this.value_frame == null) {
             this.value_frame = new JFrame("Bauteilwerte");
         }
-        this.value_frame.setSize(800, 40 * (resistors.size() + capacities.size() + inductivities.size()));
+        this.value_frame.setSize(800, 40 * (resistors.size() + capacities.size() + inductance.size()));
 
         JPanel panel = new JPanel();
 
@@ -104,10 +104,10 @@ public class Gui extends JFrame {
             this.capacity_fields.add(tmp);
             panel.add(tmp);
         }
-        for (int i = 0; i < inductivities.size(); i++) {
-            panel.add(new JLabel(inductivities.get(i) + ":"));
+        for (int i = 0; i < inductance.size(); i++) {
+            panel.add(new JLabel(inductance.get(i) + ":"));
             tmp = new JTextField("<trage hier den zugehörigen Induktivitätswert ein>");
-            this.inductivity_fields.add(tmp);
+            this.inductance_fields.add(tmp);
             panel.add(tmp);
         }
 
@@ -125,7 +125,7 @@ public class Gui extends JFrame {
     private void start_calculating() {
         ArrayList<Double> resistor_values = new ArrayList<Double>();
         ArrayList<Double> capacity_values = new ArrayList<Double>();
-        ArrayList<Double> inductivity_values = new ArrayList<Double>();
+        ArrayList<Double> inductance_values = new ArrayList<Double>();
         Double frequency = Double.valueOf(this.freq.getText());
 
         for (int i = 0; i < this.resistor_fields.size(); i++) {
@@ -136,11 +136,11 @@ public class Gui extends JFrame {
             capacity_values.add(Double.valueOf(this.capacity_fields.get(i).getText()));
         }
 
-        for (int i = 0; i < this.inductivity_fields.size(); i++) {
-            inductivity_values.add(Double.valueOf(this.inductivity_fields.get(i).getText()));
+        for (int i = 0; i < this.inductance_fields.size(); i++) {
+            inductance_values.add(Double.valueOf(this.inductance_fields.get(i).getText()));
         }
 
-        Calculate calc = new Calculate(frequency, resistor_values, capacity_values, inductivity_values);
+        Calculate calc = new Calculate(frequency, resistor_values, capacity_values, inductance_values);
 
         Circuit impedance = calc.calculate(this.circ.getText());
 
