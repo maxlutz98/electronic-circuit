@@ -7,8 +7,8 @@ public class Gui extends JFrame {
     private JTextField circ;
     private JTextField freq;
     private ArrayList<JTextField> resistor_fields;
-    private ArrayList<JTextField> condensator_fields;
-    private ArrayList<JTextField> inductor_fields;
+    private ArrayList<JTextField> capacity_fields;
+    private ArrayList<JTextField> inductivity_fields;
     private JFrame value_frame;
     private JLabel result;
 
@@ -48,8 +48,8 @@ public class Gui extends JFrame {
         int numbercon = 0;
         int numberind = 0;
         ArrayList<String> resistors = new ArrayList<String>();
-        ArrayList<String> condensators = new ArrayList<String>();
-        ArrayList<String> inductors = new ArrayList<String>();
+        ArrayList<String> capacities = new ArrayList<String>();
+        ArrayList<String> inductivities = new ArrayList<String>();
         for (int i = 0; i < input.length(); i++) {
             switch (input.charAt(i)) {
                 case 'R':
@@ -60,12 +60,12 @@ public class Gui extends JFrame {
                 case 'L':
                     numberind += 1;
                     tmp += input.charAt(i) + Integer.toString(numberind);
-                    inductors.add(input.charAt(i) + Integer.toString(numberind));
+                    inductivities.add(input.charAt(i) + Integer.toString(numberind));
                     break;
                 case 'C':
                     numbercon += 1;
                     tmp += input.charAt(i) + Integer.toString(numbercon);
-                    condensators.add(input.charAt(i) + Integer.toString(numbercon));
+                    capacities.add(input.charAt(i) + Integer.toString(numbercon));
                     break;
                 default:
                     tmp += input.charAt(i);
@@ -73,19 +73,19 @@ public class Gui extends JFrame {
             }
         }
         this.circ.setText(tmp);
-        second_frame(resistors, condensators, inductors);
+        second_frame(resistors, capacities, inductivities);
     }
 
-    private void second_frame(ArrayList<String> resistors, ArrayList<String> condensators, ArrayList<String> inductors) {
+    private void second_frame(ArrayList<String> resistors, ArrayList<String> capacities, ArrayList<String> inductivities) {
         JTextField tmp;
         this.resistor_fields = new ArrayList<JTextField>();
-        this.condensator_fields = new ArrayList<JTextField>();
-        this.inductor_fields = new ArrayList<JTextField>();
+        this.capacity_fields = new ArrayList<JTextField>();
+        this.inductivity_fields = new ArrayList<JTextField>();
 
         if (this.value_frame == null) {
             this.value_frame = new JFrame("Bauteilwerte");
         }
-        this.value_frame.setSize(800, 40 * (resistors.size() + condensators.size() + inductors.size()));
+        this.value_frame.setSize(800, 40 * (resistors.size() + capacities.size() + inductivities.size()));
 
         JPanel panel = new JPanel();
 
@@ -98,16 +98,16 @@ public class Gui extends JFrame {
             this.resistor_fields.add(tmp);
             panel.add(tmp);
         }
-        for (int i = 0; i < condensators.size(); i++) {
-            panel.add(new JLabel(condensators.get(i) + ":"));
+        for (int i = 0; i < capacities.size(); i++) {
+            panel.add(new JLabel(capacities.get(i) + ":"));
             tmp = new JTextField("<trage hier den zugehörigen Kapazitätswert ein>");
-            this.condensator_fields.add(tmp);
+            this.capacity_fields.add(tmp);
             panel.add(tmp);
         }
-        for (int i = 0; i < inductors.size(); i++) {
-            panel.add(new JLabel(inductors.get(i) + ":"));
+        for (int i = 0; i < inductivities.size(); i++) {
+            panel.add(new JLabel(inductivities.get(i) + ":"));
             tmp = new JTextField("<trage hier den zugehörigen Induktivitätswert ein>");
-            this.inductor_fields.add(tmp);
+            this.inductivity_fields.add(tmp);
             panel.add(tmp);
         }
 
@@ -124,23 +124,23 @@ public class Gui extends JFrame {
 
     private void start_calculating() {
         ArrayList<Double> resistor_values = new ArrayList<Double>();
-        ArrayList<Double> condensator_values = new ArrayList<Double>();
-        ArrayList<Double> inductor_values = new ArrayList<Double>();
+        ArrayList<Double> capacity_values = new ArrayList<Double>();
+        ArrayList<Double> inductivity_values = new ArrayList<Double>();
         Double frequency = Double.valueOf(this.freq.getText());
 
         for (int i = 0; i < this.resistor_fields.size(); i++) {
             resistor_values.add(Double.valueOf(this.resistor_fields.get(i).getText()));
         }
 
-        for (int i = 0; i < this.condensator_fields.size(); i++) {
-            condensator_values.add(Double.valueOf(this.condensator_fields.get(i).getText()));
+        for (int i = 0; i < this.capacity_fields.size(); i++) {
+            capacity_values.add(Double.valueOf(this.capacity_fields.get(i).getText()));
         }
 
-        for (int i = 0; i < this.inductor_fields.size(); i++) {
-            inductor_values.add(Double.valueOf(this.inductor_fields.get(i).getText()));
+        for (int i = 0; i < this.inductivity_fields.size(); i++) {
+            inductivity_values.add(Double.valueOf(this.inductivity_fields.get(i).getText()));
         }
 
-        Calculate calc = new Calculate(frequency, resistor_values, condensator_values, inductor_values);
+        Calculate calc = new Calculate(frequency, resistor_values, capacity_values, inductivity_values);
 
         Circuit impedance = calc.calculate(this.circ.getText());
 

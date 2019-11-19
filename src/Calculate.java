@@ -3,14 +3,14 @@ import java.util.ArrayList;
 public class Calculate {
     private Double frequency;
     private ArrayList<Double> resistors;
-    private ArrayList<Double> condensators;
-    private ArrayList<Double> inductors;
+    private ArrayList<Double> capacities;
+    private ArrayList<Double> inductivities;
 
-    public Calculate(Double frequency, ArrayList resistors, ArrayList condensators, ArrayList inductors) {
+    public Calculate(Double frequency, ArrayList resistors, ArrayList capacities, ArrayList inductivities) {
         this.frequency = frequency;
         this.resistors = resistors;
-        this.condensators = condensators;
-        this.inductors = inductors;
+        this.capacities = capacities;
+        this.inductivities = inductivities;
     }
 
     public Circuit calculate(String term) {
@@ -62,11 +62,11 @@ public class Calculate {
                 res.calculateImpedance();
                 circ.calculateImpedance(res);
             } else if (term.matches("^C[0-9]+")) {
-                Capacity cap = new Capacity(this.frequency, this.condensators.get(Integer.valueOf(term.replaceAll("C", "")) - 1));
+                Capacity cap = new Capacity(this.frequency, this.capacities.get(Integer.valueOf(term.replaceAll("C", "")) - 1));
                 cap.calculateImpedance();
                 circ.calculateImpedance(cap);
             } else if (term.matches("^L[0-9]+")) {
-                Inductivity ind = new Inductivity(this.frequency, this.inductors.get(Integer.valueOf(term.replaceAll("L", "")) - 1));
+                Inductivity ind = new Inductivity(this.frequency, this.inductivities.get(Integer.valueOf(term.replaceAll("L", "")) - 1));
                 ind.calculateImpedance();
                 circ.calculateImpedance(ind);
             }
