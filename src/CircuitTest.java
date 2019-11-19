@@ -51,7 +51,11 @@ class CircuitTest {
 
     @Test
     void calculateImpedance() {
-
+        Resistor res = new Resistor(100, 1000);
+        res.calculateImpedance();
+        Circuit circ = new Circuit("Resistor");
+        circ.calculateImpedance(res);
+        assertTrue(circ.getRe() == 1000.0);
     }
 
 }
