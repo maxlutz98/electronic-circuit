@@ -23,6 +23,8 @@ public class Calculate {
         String right;
         Circuit circ;
 
+        term = remove_braces(term);
+
         do {
             if ((term.charAt(index) == '+' || (term.charAt(index) == '|' && term.charAt(index + 1) == '|')) && num_braces == 0) {
                 found = true;
