@@ -8,6 +8,6 @@ public class Capacity extends Component { // represents a capacitor in the curcu
     }
     public void calculateImpedance(){
         double tempImpedance = (1/ (this.getFreq() * 2 * Math.PI * this.getValue()));
-        this.setIm(1/ (this.getFreq() * 2 * Math.PI * this.getValue()));
+        this.setIm(-1 / (this.getFreq() * 2 * Math.PI * this.getValue()));
     }
 }
