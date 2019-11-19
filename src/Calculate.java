@@ -40,13 +40,14 @@ public class Calculate {
 
         if (found) {
             left = remove_braces(term.substring(0, symbol_pos));
-            right = remove_braces(term.substring(symbol_pos + 1));
             switch (symbol) {
                 case '+':
+                    right = remove_braces(term.substring(symbol_pos + 1));
                     circ = new Seriell(this.calculate(left), this.calculate(right), term);
                     circ.calculateImpedance();
                     break;
                 case '|':
+                    right = remove_braces(term.substring(symbol_pos + 2));
                     circ = new Paralell(this.calculate(left), this.calculate(right), term);
                     circ.calculateImpedance();
                     break;
