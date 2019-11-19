@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SeriellTest {
 
@@ -15,8 +15,8 @@ class SeriellTest {
 
         Seriell ser = new Seriell("Test");
         ser.calculateImpedance(circ1, circ2);
-        assertTrue(ser.getRe() == 15.0);
-        assertTrue(ser.getIm() == 37.5);
+        assertEquals(ser.getRe(), 15.0);
+        assertEquals(ser.getIm(), 37.5);
     }
 
     @Test
@@ -30,7 +30,7 @@ class SeriellTest {
 
         Seriell ser = new Seriell(circ1, circ2);
         ser.calculateImpedance();
-        assertTrue(ser.getRe() == 15.0);
-        assertTrue(ser.getIm() == 37.5);
+        assertEquals(ser.getRe(), 15.0);
+        assertEquals(ser.getIm(), 37.5);
     }
 }
