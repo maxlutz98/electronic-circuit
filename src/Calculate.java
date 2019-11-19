@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Calculate {
     private Double frequency;
-    private ArrayList resistors;
-    private ArrayList condensators;
-    private ArrayList inductors;
+    private ArrayList<Double> resistors;
+    private ArrayList<Double> condensators;
+    private ArrayList<Double> inductors;
 
     public Calculate(Double frequency, ArrayList resistors, ArrayList condensators, ArrayList inductors) {
         this.frequency = frequency;
