@@ -5,13 +5,14 @@ import java.util.ArrayList;
 class CalculateTest {
 
     @Test
-    void testCalculate() {
+    void calculate() {
         ArrayList<Double> parameter1 = new ArrayList<Double>();
         ArrayList<Double> parameter2 = new ArrayList<Double>();
         ArrayList<Double> parameter3 = new ArrayList<Double>();
 
         parameter1.add(10.2);
         parameter1.add(329.2);
+        parameter1.add(100.0);
 
         parameter2.add(25.10);
 
@@ -22,5 +23,4 @@ class CalculateTest {
         Circuit result = calc.calculate("(R1+L1)+C1");
         result.print();
     }
-
 }
