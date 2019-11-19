@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 class SeriellTest {
 
     @Test
@@ -17,6 +19,7 @@ class SeriellTest {
 
         Seriell ser = new Seriell(circ1, circ2);
         ser.calculateImpedance();
-        ser.print();
+        assertTrue(ser.getRe() == 15.0);
+        assertTrue(ser.getIm() == 37.5);
     }
 }
