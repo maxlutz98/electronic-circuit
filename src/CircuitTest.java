@@ -44,6 +44,9 @@ class CircuitTest {
 
     @Test
     void setFormula() {
+        Circuit circ = new Circuit("Circ1");
+        circ.setFormula("Test");
+        assertTrue(circ.getFormula() == "Test");
     }
 
     @Test
