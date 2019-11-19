@@ -142,7 +142,7 @@ public class Gui extends JFrame {
 
         Calculate calc = new Calculate(frequency, resistor_values, condensator_values, inductor_values);
 
-        Circuit impedance = calc.calculate();
+        Circuit impedance = calc.calculate(this.circ.getText());
 
         this.result.setText("Gesamtimpedanz: " + impedance.getRe() + " + " + impedance.getIm());
     }
