@@ -22,6 +22,10 @@ class CircuitTest {
 
     @Test
     void setComponent1() {
+        Circuit circ1 = new Circuit("Circ1");
+        Circuit test = new Circuit("Main");
+        test.setComponent1(circ1);
+        assertTrue(test.getComponent1() == circ1);
     }
 
     @Test
