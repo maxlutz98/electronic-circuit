@@ -38,6 +38,8 @@ class CircuitTest {
 
     @Test
     void getFormula() {
+        Circuit circ = new Circuit("Circ1");
+        assertTrue(circ.getFormula() == "Circ1");
     }
 
     @Test
