@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class ParalellTest {
 
     @Test
@@ -17,6 +19,7 @@ class ParalellTest {
 
         Paralell par = new Paralell(circ1, circ2);
         par.calculateImpedance();
-        par.print();
+        assertEquals(par.getRe(), 4.25287356321839);
+        assertEquals(par.getIm(), 9.36781609195402);
     }
 }
