@@ -144,6 +144,6 @@ public class Gui extends JFrame {
 
         Circuit impedance = calc.calculate(this.circ.getText());
 
-        this.result.setText("Gesamtimpedanz: " + impedance.getRe() + " + " + impedance.getIm());
+        this.result.setText("Gesamtimpedanz: " + impedance.getRe() + " + " + impedance.getIm() + "j");
     }
 }
