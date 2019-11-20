@@ -64,20 +64,23 @@ public class Gui extends JFrame {
         // index the component with continuous numbers and add them to string
         for (int i = 0; i < input.length(); i++) {
             switch (input.charAt(i)) {
+                case 'r':
                 case 'R':
                     numberres += 1;
-                    tmp += input.charAt(i) + Integer.toString(numberres);
-                    resistors.add(input.charAt(i) + Integer.toString(numberres));
+                    tmp += (input.charAt(i) + Integer.toString(numberres)).toUpperCase();
+                    resistors.add((input.charAt(i) + Integer.toString(numberres)).toUpperCase());
                     break;
+                case 'l':
                 case 'L':
                     numberind += 1;
-                    tmp += input.charAt(i) + Integer.toString(numberind);
-                    inductance.add(input.charAt(i) + Integer.toString(numberind));
+                    tmp += (input.charAt(i) + Integer.toString(numberind)).toUpperCase();
+                    inductance.add((input.charAt(i) + Integer.toString(numberind)).toUpperCase());
                     break;
+                case 'c':
                 case 'C':
                     numbercon += 1;
-                    tmp += input.charAt(i) + Integer.toString(numbercon);
-                    capacities.add(input.charAt(i) + Integer.toString(numbercon));
+                    tmp += (input.charAt(i) + Integer.toString(numbercon)).toUpperCase();
+                    capacities.add((input.charAt(i) + Integer.toString(numbercon)).toUpperCase());
                     break;
                 default:
                     tmp += input.charAt(i);
