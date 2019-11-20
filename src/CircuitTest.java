@@ -6,6 +6,7 @@ class CircuitTest {
 
     @Test
     void getComponent1() {
+        // method for testing the getComponent1 method
         Circuit circ1 = new Circuit("Circ1");
         Circuit circ2 = new Circuit("Circ2");
         Circuit test = new Circuit(circ1, circ2, "Main");
@@ -14,6 +15,7 @@ class CircuitTest {
 
     @Test
     void getComponent2() {
+        // method for testing the getComponent2 method
         Circuit circ1 = new Circuit("Circ1");
         Circuit circ2 = new Circuit("Circ2");
         Circuit test = new Circuit(circ1, circ2, "Main");
@@ -22,6 +24,7 @@ class CircuitTest {
 
     @Test
     void setComponent1() {
+        // method for testing the setComponent1 method
         Circuit circ1 = new Circuit("Circ1");
         Circuit test = new Circuit("Main");
         test.setComponent1(circ1);
@@ -30,6 +33,7 @@ class CircuitTest {
 
     @Test
     void setComponent2() {
+        // method for testing the setComponent2 method
         Circuit circ2 = new Circuit("Circ2");
         Circuit test = new Circuit("Main");
         test.setComponent2(circ2);
@@ -38,12 +42,14 @@ class CircuitTest {
 
     @Test
     void getFormula() {
+        // method for testing the getFormula method
         Circuit circ = new Circuit("Circ1");
         assertEquals(circ.getFormula(), "Circ1");
     }
 
     @Test
     void setFormula() {
+        // method for testing the setFormula method
         Circuit circ = new Circuit("Circ1");
         circ.setFormula("Test");
         assertEquals(circ.getFormula(), "Test");
@@ -51,6 +57,7 @@ class CircuitTest {
 
     @Test
     void calculateImpedance() {
+        // method for testing the calculateImpedance method with one component as parameter
         Resistor res = new Resistor(100, 1000);
         res.calculateImpedance();
         Circuit circ = new Circuit("Resistor");
