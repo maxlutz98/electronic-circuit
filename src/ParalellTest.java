@@ -6,6 +6,7 @@ class ParalellTest {
 
     @Test
     void calculateImpedance() {
+        // method for testing the calculateImpedance method with two circuit objects as parameter
         Circuit circ1 = new Circuit("Circ1");
         circ1.setIm(15.0);
         circ1.setRe(10.0);
@@ -21,6 +22,7 @@ class ParalellTest {
 
     @Test
     void testCalculateImpedance() {
+        // method for testing the calculateImpedance method with no parameter
         Circuit circ1 = new Circuit("Circ1");
         circ1.setIm(15.0);
         circ1.setRe(10.0);
