@@ -102,7 +102,7 @@ public class Gui extends JFrame {
         if (this.value_frame == null) {
             this.value_frame = new JFrame("Bauteilwerte");
         }
-        this.value_frame.setSize(800, 40 * (resistors.size() + capacities.size() + inductance.size()));
+        this.value_frame.setSize(800, 40 * (resistors.size() + capacities.size() + inductance.size()) + 40);
 
         // create empty panel
         JPanel panel = new JPanel();
