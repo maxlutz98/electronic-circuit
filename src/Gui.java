@@ -98,10 +98,14 @@ public class Gui extends JFrame {
         this.capacity_fields = new ArrayList<JTextField>();
         this.inductance_fields = new ArrayList<JTextField>();
 
-        // only one time creation of the frame and set size
+        // only one time creation of the frame
         if (this.value_frame == null) {
             this.value_frame = new JFrame("Bauteilwerte");
         }
+        // clear frame
+        this.value_frame.getContentPane().removeAll();
+        this.value_frame.repaint();
+        // set size dynamically
         this.value_frame.setSize(800, 40 * (resistors.size() + capacities.size() + inductance.size()) + 40);
 
         // create empty panel
