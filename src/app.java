@@ -2,8 +2,10 @@
 public class app {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+        // initialise gui object
+        Gui gui = new Gui();
+        // create main frame
+        gui.init();
 	}
 
 }
